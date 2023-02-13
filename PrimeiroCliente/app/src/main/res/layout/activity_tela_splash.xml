@@ -5,30 +5,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/clientBackground"
-    android:padding="16dp"
-    tools:context=".MainActivity">
-
+    tools:context=".TelaSplashActivity">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/desconto"
-        tools:layout_editor_absoluteX="91dp"
-        tools:layout_editor_absoluteY="105dp"
-        tools:ignore="MissingConstraints" />
+        android:id="@+id/logoPrimeiroCliente"
+        android:layout_width="256dp"
+        android:layout_height="256dp"
+        android:layout_gravity="center"
+        android:contentDescription="LogoMarca"
+        android:layout_marginTop="50dp"
+        app:srcCompat="@drawable/logo_tarefa"
+        tools:ignore="MissingConstraints"
+        />
 
     <TextView
-        android:id="@+id/textoPromocional"
+        android:id="@+id/boasVindasCliente"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/texto_promocional"
         android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:text="@string/splash_bem_vindo"
         android:textSize="@dimen/font_size"
-        tools:layout_editor_absoluteX="142dp"
-        tools:layout_editor_absoluteY="527dp"
         android:textColor="@color/clientColor"
-        tools:ignore="MissingConstraints" />
-
+        />
 </androidx.appcompat.widget.LinearLayoutCompat>

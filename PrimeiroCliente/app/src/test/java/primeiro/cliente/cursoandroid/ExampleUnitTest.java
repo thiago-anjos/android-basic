@@ -1,4 +1,4 @@
-package com.example.primeirocliente;
+package primeiro.cliente.cursoandroid;
 
 import org.junit.Test;
 

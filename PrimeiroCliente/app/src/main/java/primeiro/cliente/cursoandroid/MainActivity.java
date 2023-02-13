@@ -1,8 +1,11 @@
-package com.example.primeirocliente;
+package primeiro.cliente.cursoandroid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
 
 import android.os.Bundle;
+import android.text.Spanned;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 

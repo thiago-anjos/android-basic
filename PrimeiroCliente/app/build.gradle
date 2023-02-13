@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.example.primeirocliente'
+    namespace 'primeiro.cliente.cursoandroid'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.example.primeirocliente"
+        applicationId "primeiro.cliente.cursoandroid"
         minSdk 29
         targetSdk 33
         versionCode 1
