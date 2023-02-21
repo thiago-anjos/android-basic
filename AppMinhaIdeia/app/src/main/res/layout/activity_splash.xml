@@ -12,7 +12,8 @@
       android:id="@+id/imageView2"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      app:srcCompat="@drawable/dragon_ball_o_nome_de_goku_1" />
+      app:srcCompat="@drawable/dragon_ball_o_nome_de_goku_1"
+      android:contentDescription="TODO" />
 
 
   <TextView
@@ -28,7 +29,6 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_gravity="center"
-      android:text="Versão 1.0" />
-
+      />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
