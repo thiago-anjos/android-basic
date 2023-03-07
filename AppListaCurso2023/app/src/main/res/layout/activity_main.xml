@@ -7,7 +7,8 @@
     android:layout_margin="16dp"
     tools:context=".view.MainActivity">
 
-    <TextView android:id="@+id/txt_titulo"
+    <TextView
+        android:id="@+id/txt_titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txt_titulo"
@@ -19,59 +20,64 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.032" />
 
-    <EditText android:id="@+id/txt_nome"
+    <EditText
+        android:id="@+id/txt_nome"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:layout_marginTop="32dp"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="Primeiro nome"
         android:inputType="textPersonName"
         android:text="@string/txt_primeiro_nome"
-        android:hint="Primeiro nome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_titulo"
-        android:autofillHints=""
         tools:ignore="LabelFor" />
 
-    <EditText android:id="@+id/txt_sobrenome"
+    <EditText
+        android:id="@+id/txt_sobrenome"
         android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
         android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="Sobrenome"
         android:inputType="textPersonName"
         android:text="@string/txt_sobrenome"
-        android:hint="Sobrenome"
         app:layout_constraintTop_toBottomOf="@+id/txt_nome"
-        tools:layout_editor_absoluteX="0dp"
-        android:autofillHints=""
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        tools:layout_editor_absoluteX="0dp" />
 
-    <EditText android:id="@+id/txt_curso"
+    <EditText
+        android:id="@+id/txt_curso"
         android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
         android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints="Curso desejado"
         android:ems="10"
+        android:hint="Digite o curso desejado"
         android:inputType="textPersonName"
         android:text="@string/txt_curso_desejado"
-        android:hint="Digite o curso desejado"
         app:layout_constraintTop_toBottomOf="@+id/txt_sobrenome"
-        tools:layout_editor_absoluteX="-16dp"
-        android:autofillHints="Curso desejado"
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        tools:layout_editor_absoluteX="-16dp" />
 
-    <EditText android:id="@+id/txt_contato"
+    <EditText
+        android:id="@+id/txt_contato"
         android:layout_width="match_parent"
-        android:layout_marginTop="16dp"
         android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:autofillHints=""
         android:ems="10"
+        android:hint="Telefone de contato"
         android:inputType="textPersonName"
         android:text="@string/contato"
-        android:hint="Telefone de contato"
         app:layout_constraintTop_toBottomOf="@+id/txt_curso"
-        tools:layout_editor_absoluteX="-26dp"
-        android:autofillHints=""
-        tools:ignore="LabelFor" />
+        tools:ignore="LabelFor"
+        tools:layout_editor_absoluteX="-26dp" />
 
-    <Button android:id="@+id/btn_limpar"
+    <Button
+        android:id="@+id/btn_limpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -80,7 +86,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_contato" />
 
-    <Button android:id="@+id/btn_salvar"
+    <Button
+        android:id="@+id/btn_salvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -89,7 +96,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_contato" />
 
-    <Button android:id="@+id/btn_finalizar"
+    <Button
+        android:id="@+id/btn_finalizar"
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_marginTop="140dp"

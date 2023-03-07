@@ -2,6 +2,7 @@ package devandroid.thiago.applistacurso2023.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,14 +11,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import devandroid.thiago.applistacurso2023.R;
+import devandroid.thiago.applistacurso2023.controller.PessoaController;
 import devandroid.thiago.applistacurso2023.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
-    Pessoa pessoa;
-    Pessoa pessoaFeminina;
-    String dadosPessoa;
-    String dadosPessoaFeminina;
 
+    SharedPreferences sharedPreferences;
+    public static final String NOME_PREFERENCES = "pref_lista_vip";
+    PessoaController pessoaController;
+    Pessoa pessoa;
     EditText txt_nome;
     EditText txt_sobrenome;
     EditText txt_curso;
@@ -33,21 +35,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pessoa = new Pessoa();
-        /*
-        pessoa.setPrimeiroNome("Thiago");
-        pessoa.setSobrenome("Anjos");
-        pessoa.setCursoDesejado("Android");
-        pessoa.setTelefoneContato("(11) 96076-4638");
-         */
 
-        dadosPessoa = "Primeiro nome: ";
-        dadosPessoa += pessoa.getPrimeiroNome();
-        dadosPessoa += " Sobrenome: ";
-        dadosPessoa += pessoa.getSobrenome();
-        dadosPessoa += " Curso desejado: ";
-        dadosPessoa += pessoa.getCursoDesejado();
-        dadosPessoa += " Telefone contato: ";
-        dadosPessoa += pessoa.getTelefoneContato();
+        pessoaController = new PessoaController();
+
+        pessoaController.toString();
+
+        sharedPreferences = getSharedPreferences(NOME_PREFERENCES,0);
+        SharedPreferences.Editor listaVip = sharedPreferences.edit();
+
 
         txt_nome = findViewById(R.id.txt_nome);
         txt_sobrenome = findViewById(R.id.txt_sobrenome);
@@ -89,12 +84,18 @@ public class MainActivity extends AppCompatActivity {
                 pessoa.setCursoDesejado(txt_curso.getText().toString());
                 pessoa.setTelefoneContato(txt_contato.getText().toString());
                 Toast.makeText(MainActivity.this, "Salvo" + pessoa.toString(), Toast.LENGTH_LONG).show();
+
+                listaVip.putString("Nome", pessoa.getPrimeiroNome());
+                listaVip.putString("Sobrenome", pessoa.getSobrenome());
+                listaVip.putString("Cusro desejado", pessoa.getCursoDesejado());
+                listaVip.putString("Contato", pessoa.getTelefoneContato());
+                listaVip.apply();
+                pessoaController.salvar(pessoa);
+
             }
         });
 
-
         Log.i("POO android", "Pessoa: " + pessoa.toString());
-
 
     }
 }
