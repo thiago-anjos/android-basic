@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="16dp"
-    tools:context=".MainActivity">
+    tools:context=".view.MainActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -97,7 +97,7 @@
         android:layout_width="320dp"
         android:layout_height="48dp"
         android:layout_marginTop="140dp"
-        android:backgroundTint="@color/black"
+        android:backgroundTint="@color/teal_700"
         android:text="@string/btn_finalizar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
