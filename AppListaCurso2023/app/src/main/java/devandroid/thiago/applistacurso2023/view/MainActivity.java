@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import devandroid.thiago.applistacurso2023.R;
 import devandroid.thiago.applistacurso2023.model.Pessoa;
@@ -31,10 +33,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pessoa = new Pessoa();
+        /*
         pessoa.setPrimeiroNome("Thiago");
         pessoa.setSobrenome("Anjos");
         pessoa.setCursoDesejado("Android");
         pessoa.setTelefoneContato("(11) 96076-4638");
+         */
 
         dadosPessoa = "Primeiro nome: ";
         dadosPessoa += pessoa.getPrimeiroNome();
@@ -58,6 +62,35 @@ public class MainActivity extends AppCompatActivity {
         txt_sobrenome.setText(pessoa.getSobrenome());
         txt_curso.setText(pessoa.getCursoDesejado());
         txt_contato.setText(pessoa.getTelefoneContato());
+
+        btn_limpar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                txt_nome.setText("");
+                txt_sobrenome.setText("");
+                txt_curso.setText("");
+                txt_contato.setText("");
+            }
+        });
+
+        btn_finalizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "Volte sempre", Toast.LENGTH_LONG).show();
+                finish();
+            }
+        });
+
+        btn_salvar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pessoa.setPrimeiroNome(txt_nome.getText().toString());
+                pessoa.setSobrenome(txt_sobrenome.getText().toString());
+                pessoa.setCursoDesejado(txt_curso.getText().toString());
+                pessoa.setTelefoneContato(txt_contato.getText().toString());
+                Toast.makeText(MainActivity.this, "Salvo" + pessoa.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
 
 
         Log.i("POO android", "Pessoa: " + pessoa.toString());
