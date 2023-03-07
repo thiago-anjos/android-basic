@@ -4,18 +4,26 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
+import android.widget.EditText;
 
 import devandroid.thiago.applistacurso2023.R;
 import devandroid.thiago.applistacurso2023.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
-
     Pessoa pessoa;
-
     Pessoa pessoaFeminina;
-
     String dadosPessoa;
     String dadosPessoaFeminina;
+
+    EditText txt_nome;
+    EditText txt_sobrenome;
+    EditText txt_curso;
+    EditText txt_contato;
+
+    Button btn_limpar;
+    Button btn_salvar;
+    Button btn_finalizar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         pessoa.setPrimeiroNome("Thiago");
         pessoa.setSobrenome("Anjos");
         pessoa.setCursoDesejado("Android");
-        pessoa.setTelefoneContato("879797798789798");
+        pessoa.setTelefoneContato("(11) 96076-4638");
 
         dadosPessoa = "Primeiro nome: ";
         dadosPessoa += pessoa.getPrimeiroNome();
@@ -37,24 +45,22 @@ public class MainActivity extends AppCompatActivity {
         dadosPessoa += " Telefone contato: ";
         dadosPessoa += pessoa.getTelefoneContato();
 
-        pessoaFeminina = new Pessoa();
-        pessoaFeminina.setPrimeiroNome("Luana");
-        pessoaFeminina.setSobrenome("Lopes");
-        pessoaFeminina.setCursoDesejado("Moda");
-        pessoaFeminina.setTelefoneContato("12121212");
+        txt_nome = findViewById(R.id.txt_nome);
+        txt_sobrenome = findViewById(R.id.txt_sobrenome);
+        txt_curso = findViewById(R.id.txt_curso);
+        txt_contato = findViewById(R.id.txt_contato);
 
+        btn_limpar = findViewById(R.id.btn_limpar);
+        btn_salvar = findViewById(R.id.btn_salvar);
+        btn_finalizar = findViewById(R.id.btn_finalizar);
 
-        dadosPessoaFeminina = "Primeiro nome: ";
-        dadosPessoaFeminina += pessoaFeminina.getPrimeiroNome();
-        dadosPessoaFeminina += " Sobrenome: ";
-        dadosPessoaFeminina += pessoaFeminina.getSobrenome();
-        dadosPessoaFeminina += " Curso desejado: ";
-        dadosPessoaFeminina += pessoaFeminina.getCursoDesejado();
-        dadosPessoaFeminina += " Telefone contato: ";
-        dadosPessoaFeminina += pessoaFeminina.getTelefoneContato();
+        txt_nome.setText(pessoa.getPrimeiroNome());
+        txt_sobrenome.setText(pessoa.getSobrenome());
+        txt_curso.setText(pessoa.getCursoDesejado());
+        txt_contato.setText(pessoa.getTelefoneContato());
+
 
         Log.i("POO android", "Pessoa: " + pessoa.toString());
-        Log.i("POO android", "Pessoa feminina: " + pessoaFeminina.toString());
 
 
     }
