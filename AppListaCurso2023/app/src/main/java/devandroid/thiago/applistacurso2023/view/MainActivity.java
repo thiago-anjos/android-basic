@@ -8,13 +8,19 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.List;
+
 import devandroid.thiago.applistacurso2023.R;
+import devandroid.thiago.applistacurso2023.controller.CursoController;
 import devandroid.thiago.applistacurso2023.controller.PessoaController;
+import devandroid.thiago.applistacurso2023.model.Curso;
 import devandroid.thiago.applistacurso2023.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
     PessoaController pessoaController;
+    CursoController cursoController;
+    List<Curso> listaCursos;
     Pessoa pessoa;
     EditText field_nome;
     EditText field_sobrenome;
@@ -29,6 +35,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        cursoController = new CursoController();
+        listaCursos = cursoController.getListaCursos();
 
         pessoa = new Pessoa();
         pessoaController = new PessoaController(MainActivity.this);

@@ -76,35 +76,56 @@
         tools:ignore="LabelFor"
         tools:layout_editor_absoluteX="-26dp" />
 
+
+    <TextView
+        android:id="@+id/txt_lista_spinner_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Selecione um curso"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_contato" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="377dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="76dp"
+        app:layout_constraintTop_toBottomOf="@+id/txt_contato"
+        tools:layout_editor_absoluteX="0dp" />
+
     <Button
         android:id="@+id/btn_limpar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="96dp"
         android:backgroundTint="@color/corBotoes"
         android:text="@string/btn_limpar"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_contato" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <Button
         android:id="@+id/btn_salvar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="96dp"
         android:backgroundTint="@color/corBotoes"
         android:text="@string/btn_salvar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_contato" />
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <Button
         android:id="@+id/btn_finalizar"
         android:layout_width="320dp"
         android:layout_height="48dp"
-        android:layout_marginTop="140dp"
         android:backgroundTint="@color/teal_700"
         android:text="@string/btn_finalizar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_contato" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_salvar" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
