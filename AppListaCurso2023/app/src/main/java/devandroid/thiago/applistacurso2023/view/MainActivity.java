@@ -2,9 +2,7 @@ package devandroid.thiago.applistacurso2023.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,14 +14,12 @@ import devandroid.thiago.applistacurso2023.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
 
-    SharedPreferences sharedPreferences;
-    public static final String NOME_PREFERENCES = "pref_lista_vip";
     PessoaController pessoaController;
     Pessoa pessoa;
     EditText field_nome;
-    EditText txt_sobrenome;
-    EditText txt_curso;
-    EditText txt_contato;
+    EditText field_sobrenome;
+    EditText field_curso;
+    EditText field_contato;
 
     Button btn_limpar;
     Button btn_salvar;
@@ -35,51 +31,32 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         pessoa = new Pessoa();
-
-        pessoaController = new PessoaController();
-
-        pessoaController.toString();
-
-        sharedPreferences = getSharedPreferences(NOME_PREFERENCES,0);
-        SharedPreferences.Editor listaVip = sharedPreferences.edit();
-
-        //setar valores no objeto pessoa do xml
-        pessoa.setPrimeiroNome(sharedPreferences.getString("nome","N/A"));
-        pessoa.setSobrenome(sharedPreferences.getString("sobrenome","N/A"));
-        pessoa.setCursoDesejado(sharedPreferences.getString("curso","N/A"));
-        pessoa.setTelefoneContato(sharedPreferences.getString("contato","N/A"));
+        pessoaController = new PessoaController(MainActivity.this);
+        pessoaController.search(pessoa);
 
         field_nome = findViewById(R.id.txt_nome);
-        txt_sobrenome = findViewById(R.id.txt_sobrenome);
-        txt_curso = findViewById(R.id.txt_curso);
-        txt_contato = findViewById(R.id.txt_contato);
-
-        //mostrar na tela os dados
-        field_nome.setText(pessoa.getPrimeiroNome());
-        txt_sobrenome.setText(pessoa.getSobrenome());
-        txt_curso.setText(pessoa.getCursoDesejado());
-        txt_contato.setText(pessoa.getTelefoneContato());
+        field_sobrenome = findViewById(R.id.txt_sobrenome);
+        field_curso = findViewById(R.id.txt_curso);
+        field_contato = findViewById(R.id.txt_contato);
 
         btn_limpar = findViewById(R.id.btn_limpar);
         btn_salvar = findViewById(R.id.btn_salvar);
         btn_finalizar = findViewById(R.id.btn_finalizar);
 
+        //mostrar na tela os dados
         field_nome.setText(pessoa.getPrimeiroNome());
-        txt_sobrenome.setText(pessoa.getSobrenome());
-        txt_curso.setText(pessoa.getCursoDesejado());
-        txt_contato.setText(pessoa.getTelefoneContato());
+        field_sobrenome.setText(pessoa.getSobrenome());
+        field_curso.setText(pessoa.getCursoDesejado());
+        field_contato.setText(pessoa.getTelefoneContato());
 
         btn_limpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 field_nome.setText("");
-                txt_sobrenome.setText("");
-                txt_curso.setText("");
-                txt_contato.setText("");
-
-                listaVip.clear();
-                listaVip.apply();
-
+                field_sobrenome.setText("");
+                field_curso.setText("");
+                field_contato.setText("");
+                pessoaController.clearListVip();
             }
         });
 
@@ -95,23 +72,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 pessoa.setPrimeiroNome(field_nome.getText().toString());
-                pessoa.setSobrenome(txt_sobrenome.getText().toString());
-                pessoa.setCursoDesejado(txt_curso.getText().toString());
-                pessoa.setTelefoneContato(txt_contato.getText().toString());
+                pessoa.setSobrenome(field_sobrenome.getText().toString());
+                pessoa.setCursoDesejado(field_curso.getText().toString());
+                pessoa.setTelefoneContato(field_contato.getText().toString());
+                pessoaController.saveVipList(pessoa);
                 Toast.makeText(MainActivity.this, "Salvo" + pessoa.toString(), Toast.LENGTH_LONG).show();
-
-                listaVip.putString("nome", pessoa.getPrimeiroNome());
-                listaVip.putString("sobrenome", pessoa.getSobrenome());
-                listaVip.putString("curso", pessoa.getCursoDesejado());
-                listaVip.putString("contato", pessoa.getTelefoneContato());
-                //salvar dados usuário no arquivo xml preferences
-                listaVip.apply();
-                pessoaController.salvar(pessoa);
-
             }
         });
-
-        Log.i("POO android", "Pessoa: " + pessoa.toString());
 
     }
 }
