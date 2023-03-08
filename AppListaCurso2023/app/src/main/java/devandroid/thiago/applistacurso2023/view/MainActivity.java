@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String NOME_PREFERENCES = "pref_lista_vip";
     PessoaController pessoaController;
     Pessoa pessoa;
-    EditText txt_nome;
+    EditText field_nome;
     EditText txt_sobrenome;
     EditText txt_curso;
     EditText txt_contato;
@@ -43,17 +43,28 @@ public class MainActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences(NOME_PREFERENCES,0);
         SharedPreferences.Editor listaVip = sharedPreferences.edit();
 
+        //setar valores no objeto pessoa do xml
+        pessoa.setPrimeiroNome(sharedPreferences.getString("nome","N/A"));
+        pessoa.setSobrenome(sharedPreferences.getString("sobrenome","N/A"));
+        pessoa.setCursoDesejado(sharedPreferences.getString("curso","N/A"));
+        pessoa.setTelefoneContato(sharedPreferences.getString("contato","N/A"));
 
-        txt_nome = findViewById(R.id.txt_nome);
+        field_nome = findViewById(R.id.txt_nome);
         txt_sobrenome = findViewById(R.id.txt_sobrenome);
         txt_curso = findViewById(R.id.txt_curso);
         txt_contato = findViewById(R.id.txt_contato);
+
+        //mostrar na tela os dados
+        field_nome.setText(pessoa.getPrimeiroNome());
+        txt_sobrenome.setText(pessoa.getSobrenome());
+        txt_curso.setText(pessoa.getCursoDesejado());
+        txt_contato.setText(pessoa.getTelefoneContato());
 
         btn_limpar = findViewById(R.id.btn_limpar);
         btn_salvar = findViewById(R.id.btn_salvar);
         btn_finalizar = findViewById(R.id.btn_finalizar);
 
-        txt_nome.setText(pessoa.getPrimeiroNome());
+        field_nome.setText(pessoa.getPrimeiroNome());
         txt_sobrenome.setText(pessoa.getSobrenome());
         txt_curso.setText(pessoa.getCursoDesejado());
         txt_contato.setText(pessoa.getTelefoneContato());
@@ -61,10 +72,14 @@ public class MainActivity extends AppCompatActivity {
         btn_limpar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                txt_nome.setText("");
+                field_nome.setText("");
                 txt_sobrenome.setText("");
                 txt_curso.setText("");
                 txt_contato.setText("");
+
+                listaVip.clear();
+                listaVip.apply();
+
             }
         });
 
@@ -79,16 +94,17 @@ public class MainActivity extends AppCompatActivity {
         btn_salvar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pessoa.setPrimeiroNome(txt_nome.getText().toString());
+                pessoa.setPrimeiroNome(field_nome.getText().toString());
                 pessoa.setSobrenome(txt_sobrenome.getText().toString());
                 pessoa.setCursoDesejado(txt_curso.getText().toString());
                 pessoa.setTelefoneContato(txt_contato.getText().toString());
                 Toast.makeText(MainActivity.this, "Salvo" + pessoa.toString(), Toast.LENGTH_LONG).show();
 
-                listaVip.putString("Nome", pessoa.getPrimeiroNome());
-                listaVip.putString("Sobrenome", pessoa.getSobrenome());
-                listaVip.putString("Cusro desejado", pessoa.getCursoDesejado());
-                listaVip.putString("Contato", pessoa.getTelefoneContato());
+                listaVip.putString("nome", pessoa.getPrimeiroNome());
+                listaVip.putString("sobrenome", pessoa.getSobrenome());
+                listaVip.putString("curso", pessoa.getCursoDesejado());
+                listaVip.putString("contato", pessoa.getTelefoneContato());
+                //salvar dados usuário no arquivo xml preferences
                 listaVip.apply();
                 pessoaController.salvar(pessoa);
 
