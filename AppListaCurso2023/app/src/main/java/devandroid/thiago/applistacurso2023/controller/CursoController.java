@@ -15,4 +15,14 @@ public class CursoController {
         listCursos.add(new Curso("React"));
         return listCursos;
     }
+
+    public ArrayList<String> dadosParaSpinner(){
+        ArrayList<String> dados = new ArrayList<>();
+        for(int i =0; i < getListaCursos().size(); i++){
+            Curso itens = (Curso) getListaCursos().get(i);
+            dados.add(itens.getNomeCurso());
+        }
+        return dados;
+    }
+
 }
