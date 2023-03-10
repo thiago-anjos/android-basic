@@ -2,7 +2,9 @@ package devandroid.thiago.applistacurso2023.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -11,12 +13,10 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import devandroid.thiago.applistacurso2023.R;
 import devandroid.thiago.applistacurso2023.controller.CursoController;
 import devandroid.thiago.applistacurso2023.controller.PessoaController;
-import devandroid.thiago.applistacurso2023.model.Curso;
 import devandroid.thiago.applistacurso2023.model.Pessoa;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
     Button btn_limpar;
     Button btn_salvar;
     Button btn_finalizar;
+
+    Button btn_criar_curso;
 
     Spinner spinner;
 
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         btn_limpar = findViewById(R.id.btn_limpar);
         btn_salvar = findViewById(R.id.btn_salvar);
         btn_finalizar = findViewById(R.id.btn_finalizar);
+        btn_criar_curso = findViewById(R.id.btn_criar_curso);
 
         spinner = findViewById(R.id.spinner);
 
@@ -104,6 +107,17 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Salvo" + pessoa.toString(), Toast.LENGTH_LONG).show();
             }
         });
+
+        btn_criar_curso.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mainScreen = new Intent(MainActivity.this, CourseActivity.class);
+                startActivity(mainScreen);
+                finish();
+            }
+        });
+
+
 
     }
 }

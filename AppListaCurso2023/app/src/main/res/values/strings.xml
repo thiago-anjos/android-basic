@@ -9,4 +9,6 @@
     <string name="btn_salvar">SALVAR</string>
     <string name="btn_finalizar">FINALIZAR</string>
     <string name="subtitle_select_course">Selecione um curso</string>
+    <string name="course_title_add_course">Adicione um curso</string>
+    <string name="course_hint_editText_type_course">Digite um curso</string>
 </resources>
