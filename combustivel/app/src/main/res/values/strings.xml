@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">App Etanol x Combustivel</string>
+    <string name="txt_titulo">Aplicativo Escolha Combustível</string>
+    <string name="text_gasolina">Gasolina</string>
+    <string name="text_etanol">Etanol</string>
+    <string name="txt_curso_desejado">Nome do curso desejado</string>
+    <string name="contato">Telefone de contato</string>
+    <string name="btn_limpar">LIMPAR</string>
+    <string name="btn_salvar">SALVAR</string>
+    <string name="btn_finalizar">FINALIZAR</string>
+    <string name="subtitle_select_course">Selecione um curso</string>
+    <string name="course_title_add_course">Adicione um curso</string>
+    <string name="course_hint_editText_type_course">Digite um curso</string>
+    <string name="btn_calcular">Calcular</string>
+    <string name="hint_gasolina">Preço Gasolina</string>
+    <string name="hint_ethanol">Preço Etanol</string>
+    <string name="text_calculate">Resultado</string>
+    <string name="title_activity_item_detail_host">ItemDetailHostActivity</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="title_activity_splash">Splash</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+</resources>
