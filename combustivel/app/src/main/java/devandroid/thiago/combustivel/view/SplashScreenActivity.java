@@ -16,10 +16,11 @@ public class SplashScreenActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        fuelDB = new FuelDB(SplashScreenActivity.this);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                fuelDB = new FuelDB(SplashScreenActivity.this);
+
                 //This method will be executed once the timer is over
                 // Start your app main activity
                 Intent i = new Intent(SplashScreenActivity.this, MainActivity.class);

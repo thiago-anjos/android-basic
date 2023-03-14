@@ -9,6 +9,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
+
 import devandroid.thiago.combustivel.R;
 import devandroid.thiago.combustivel.controller.FuelController;
 import devandroid.thiago.combustivel.model.Fuel;
@@ -34,12 +37,26 @@ public class MainActivity extends AppCompatActivity {
     double ethanolPrice;
     String suggestedFuel;
 
+    List<Fuel> listFuelData;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         fuelController = new FuelController(MainActivity.this);
+
+        listFuelData = fuelController.getListFuel();
+
+        Fuel fuelTestUpdateManuel = listFuelData.get(1);
+        fuelTestUpdateManuel.setFuelName("NOME ALTERADO");
+        fuelTestUpdateManuel.setFuelPrice(78.78);
+        fuelTestUpdateManuel.setSuggestedPrice("ABASTER COM SOL");
+
+        fuelController.updateFuel(fuelTestUpdateManuel);
+
+        //deletar registro  7
+        fuelController.deleteRegister(7);
 
         text_gasolina = findViewById(R.id.text_gasolina);
         text_etanol = findViewById(R.id.text_etanol);
@@ -48,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         btn_limpar = findViewById(R.id.btn_limpar);
         btn_salvar = findViewById(R.id.btn_salvar);
         //esconder botão salvar
-        btn_salvar.setAlpha(0);
+        //btn_salvar.setAlpha(0);
 
 
         btn_calcular.setOnClickListener(new View.OnClickListener() {
@@ -104,11 +121,9 @@ public class MainActivity extends AppCompatActivity {
                 gasolineFuel.setSuggestedPrice(suggestedFuel);
 
                 ethanolFuel = new Fuel();
-                ethanolFuel.setFuelName("Gasolina");
+                ethanolFuel.setFuelName("Etanol");
                 ethanolFuel.setFuelPrice(ethanolPrice);
                 ethanolFuel.setSuggestedPrice(suggestedFuel);
-
-
 
                 fuelController.saveFuel(gasolineFuel);
                 fuelController.saveFuel(ethanolFuel);

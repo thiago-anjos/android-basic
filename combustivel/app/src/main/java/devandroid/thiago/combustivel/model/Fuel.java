@@ -1,6 +1,8 @@
 package devandroid.thiago.combustivel.model;
 
 public class Fuel {
+
+    private int id;
     private String fuelName;
     private double fuelPrice;
 
@@ -28,5 +30,13 @@ public class Fuel {
 
     public void setFuelPrice(double fuelPrice) {
         this.fuelPrice = fuelPrice;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }
