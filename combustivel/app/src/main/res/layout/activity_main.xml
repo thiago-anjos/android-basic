@@ -9,7 +9,6 @@
     tools:context=".view.MainActivity">
 
     <TextView
-        android:id="@+id/txt_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -111,7 +110,6 @@
         android:text="@string/btn_salvar" />
 
     <ImageView
-        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/_019_honda_civic_sedan_1558453497" />
