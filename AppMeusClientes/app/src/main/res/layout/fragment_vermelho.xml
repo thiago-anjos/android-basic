@@ -6,7 +6,7 @@
     tools:context=".view.ModeloVermelhoFragment">
 
     <TextView
-        android:id="@+id/txtTitulo"
+        android:id="@+id/addClienteTitle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

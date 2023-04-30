@@ -7,7 +7,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
 
 import app.modelo.meusclientes.R;
@@ -32,7 +31,7 @@ public class ModeloPretoFragment extends Fragment {
 
         view =  inflater.inflate(R.layout.fragment_preto, container, false);
 
-        TextView txtTitulo = view.findViewById(R.id.txtTitulo);
+        TextView txtTitulo = view.findViewById(R.id.addClienteTitle);
 
         txtTitulo.setText(R.string.modelo_fragment);
 
